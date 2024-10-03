@@ -1,0 +1,1 @@
+simple consul demo app
