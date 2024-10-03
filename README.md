@@ -1,1 +1,1 @@
-simple consul demo app
+simple spring cloud consul demo app
