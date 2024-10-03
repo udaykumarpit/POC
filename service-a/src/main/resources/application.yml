@@ -4,14 +4,14 @@ server:
 spring:
   application:
     name: service-a
-
-resilience4j:
-  ratelimiter:
-    instances:
-      serviceA:
-        limit-for-period: 5 # Number of calls allowed per time period
-        limit-refresh-period: 1s # Time period to refresh the limit
-        timeout-duration: 1s # Duration for which calls will be timed out
+#
+#resilience4j:
+#  ratelimiter:
+#    instances:
+#      serviceA:
+#        limit-for-period: 5 # Number of calls allowed per time period
+#        limit-refresh-period: 1s # Time period to refresh the limit
+#        timeout-duration: 1s # Duration for which calls will be timed out
 
 #resilience4j:
 #  rate-limiter:
@@ -25,4 +25,31 @@ resilience4j:
 #      limit-for-period: 5 # Number of calls allowed per time period
 #      limit-refresh-period: 1s # Time period to refresh the limit
 #      timeout-duration: 1s # Duration for which calls will be timed out
+management:
+  endpoint:
+    health:
+      show-details: ALWAYS
+  health:
+    ratelimiters:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+resilience4j.ratelimiter:
+  instances:
+    serviceA:
+      limitForPeriod: 2
+      limitRefreshPeriod: 2s
+      timeoutDuration: 0s
+      registerHealthIndicator: true
+      subscribeForEvents: true
+
+#    rateLimiterEventsExample:
+#      limitForPeriod: 2
+#      limitRefreshPeriod: 10s
+#      timeoutDuration: 5s
+#      registerHealthIndicator: true
+#      subscribeForEvents: true
 
