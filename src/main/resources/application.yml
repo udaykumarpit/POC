@@ -1,0 +1,19 @@
+#spring:
+#  application:
+#    name: flight-return-search-service
+
+#  cloud:
+#    consul:
+#      port: 8500
+#      discovery:
+#        register: true
+#        enabled: true
+#        deregister: false
+#        prefer-ip-address: true
+#        healthCheckPath: /actuator/health
+#        healthCheckInterval: 2s
+#        health-check-critical-timeout: 4s
+#        scheme: http
+#        health-check-tls-skip-verify: true
+#        register-health-check: true
+#
